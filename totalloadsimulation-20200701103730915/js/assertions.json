@@ -1,0 +1,10 @@
+{
+  "simulation": "bank.TotalLoadSimulation",
+  "simulationId": "totalloadsimulation",
+  "start": 1593599850915,
+  "description": "",
+  "scenarios": ["Bank Load"],
+  "assertions": [
+
+  ]
+}

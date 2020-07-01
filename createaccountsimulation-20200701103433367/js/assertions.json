@@ -1,0 +1,10 @@
+{
+  "simulation": "bank.CreateAccountSimulation",
+  "simulationId": "createaccountsimulation",
+  "start": 1593599673367,
+  "description": "",
+  "scenarios": ["Create account"],
+  "assertions": [
+
+  ]
+}

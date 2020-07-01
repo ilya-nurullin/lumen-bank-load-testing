@@ -1,0 +1,10 @@
+{
+  "simulation": "bank.TransactionsSimulation",
+  "simulationId": "transactionssimulation",
+  "start": 1593600116115,
+  "description": "",
+  "scenarios": ["Transactions"],
+  "assertions": [
+
+  ]
+}
