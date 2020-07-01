@@ -1,19 +1,3 @@
-/*
- * Copyright 2011-2019 GatlingCorp (https://gatling.io)
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package bank
 
 import io.gatling.core.Predef._
@@ -46,19 +30,9 @@ class CreateAccountSimulation extends Simulation {
       .body(StringBody("""{ "accountNumber": "${nextAccountNumber}", "initialBalance": "17563.89" }""")).asJson
     )
 
-  // setUp(scn.inject(
-  //   constantConcurrentUsers(10) during (10 seconds),
-  //   rampConcurrentUsers(10) to (150) during (25 seconds),
-  //   constantConcurrentUsers(200) during (30 seconds)
-  // ).protocols(httpProtocol))
-
   setUp(scn.inject(
-    atOnceUsers(10), // 2
-    rampUsers(10) during (5 seconds), // 3
-    constantUsersPerSec(300) during (20 seconds), // 4
-    // constantUsersPerSec(20) during (10 seconds) randomized, // 5
-    // rampUsersPerSec(10) to 40 during (15 seconds), // 6
-    // rampUsersPerSec(10) to 40 during (15 seconds) randomized, // 7
-    // heavisideUsers(1500) during (15 seconds) // 8
+    atOnceUsers(10),
+    rampUsers(10) during (5 seconds),
+    constantUsersPerSec(300) during (20 seconds)
   ).protocols(httpProtocol))
 }

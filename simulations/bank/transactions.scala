@@ -46,19 +46,9 @@ class TransactionsSimulation extends Simulation {
       .body(StringBody("""{ "from": "${accountNumber}", "to": "${to}", "amount": "1.17" }""")).asJson
     )
 
-  // setUp(scn.inject(
-  //   constantConcurrentUsers(10) during (10 seconds),
-  //   rampConcurrentUsers(10) to (150) during (25 seconds),
-  //   constantConcurrentUsers(200) during (30 seconds)
-  // ).protocols(httpProtocol))
-
   setUp(scn.inject(
-    atOnceUsers(10), // 2
-    rampUsers(10) during (5 seconds), // 3
-    constantUsersPerSec(150) during (20 seconds), // 4
-    // constantUsersPerSec(20) during (10 seconds) randomized, // 5
-    // rampUsersPerSec(10) to 40 during (15 seconds), // 6
-    // rampUsersPerSec(10) to 40 during (15 seconds) randomized, // 7
-    // heavisideUsers(1500) during (15 seconds) // 8
+    atOnceUsers(10),
+    rampUsers(10) during (5 seconds),
+    constantUsersPerSec(150) during (20 seconds)
   ).protocols(httpProtocol))
 }
